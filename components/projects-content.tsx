@@ -89,7 +89,7 @@ function ProjectsContent() {
     };
     return (
         <>
-            <div className='flex justify-center items-center my-10'>
+            <div className='flex justify-center items-center'>
                 <h1 className='text-xl font-bold uppercase'>{currentProjectIndex + 1} / {projects.length}</h1>
             </div>
             <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:items-center md:justify-center">

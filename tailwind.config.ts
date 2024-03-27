@@ -13,6 +13,16 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      animation: {
+        wave: 'wave 2s ease-in-out infinite',
+      },
+      keyframes: {
+        wave: {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '15%, 45%, 75%': { transform: 'rotate(-15deg)' },
+          '30%, 60%': { transform: 'rotate(15deg)' },
+        },
+      }
     },
   },
   plugins: [],

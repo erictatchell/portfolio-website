@@ -30,14 +30,15 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
 
-        resend.emails.send({
-            from: email,
-            to: 'etatchell@outlook.com',
-            subject: subject,
-            html: `<p>${body}</p>`
-        });
+        // resend.emails.send({
+        //     from: email,
+        //     to: 'etatchell@outlook.com',
+        //     subject: subject,
+        //     html: `<p>${body}</p>`
+        // });
         onClose();
     };
+
 
     return (
         <motion.div

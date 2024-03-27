@@ -43,7 +43,7 @@ function AboutMeContent() {
         >
             <section className="">
                 <div className="py-8 px-4 mx-auto max-w-screen-xl text-center pt-16">
-                    <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-black md:text-5xl lg:text-6xl ">Hi there</h1>
+                    <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-black md:text-5xl lg:text-6xl ">Hi There</h1>
                     <p className="text-lg font-normal text-slate-500 lg:text-xl sm:px-16 lg:px-48">
                         I&apos;m a designer & developer with a special interest in networking and audio processing
                     </p>

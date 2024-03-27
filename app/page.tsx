@@ -8,7 +8,7 @@ export default function Home() {
         <Content />
       </div>
 
-      <span className="hidden md:block md:w-px bg-gray-500 self-center h-96 mb-4 lg:mb-0"></span>
+      <span className="md:block md:w-px bg-gray-500 self-center h-96 mb-4 lg:mb-0"></span>
 
       <div className="flex w-full justify-center space-x-4 px-4 mb-48 md:space-x-0 md:px-0 md:justify-between md:col-span-2 lg:mb-0">
         <Menu />

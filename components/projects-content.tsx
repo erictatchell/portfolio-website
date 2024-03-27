@@ -89,22 +89,17 @@ function ProjectsContent() {
     };
     return (
         <>
-            <div className='flex justify-center my-5 items-center'>
-                <h1 className='text-xl font-bold uppercase'>{currentProjectIndex + 1} / {projects.length}</h1>
-            </div>
-            <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:items-center md:justify-center">
-                <button onClick={prevProject} className="hidden xl:block xl:text-left">
+            <div className='flex justify-center my-12 items-center'>
+                <button onClick={prevProject} className="mr-4  ">
                     <ArrowCircleLeft size={32} />
                 </button>
-                <div className="flex md:order-2">
+                <h1 className='text-xl font-bold uppercase'>{currentProjectIndex + 1} / {projects.length}</h1>
 
-                    <button onClick={prevProject} className="md:hidden">
-                        <ArrowCircleLeft size={32} />
-                    </button>
-                    <button onClick={nextProject} className="md:hidden">
-                        <ArrowCircleRight size={32} />
-                    </button>
-                </div>
+                <button onClick={nextProject} className="ml-4 ">
+                    <ArrowCircleRight size={32} />
+                </button>
+            </div>
+            <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:items-center md:justify-center">
                 <motion.div className="flex"
                     key={currentProjectIndex}
                     custom={currentProjectIndex}
@@ -113,7 +108,7 @@ function ProjectsContent() {
                     animate="center"
                     exit="exit"
                     transition={{
-                        x: { type: "spring", stiffness: 300, damping: 30 },
+                        x: { type: "spring", stiffness: 400, damping: 30 },
                         opacity: { duration: 0.2 }
                     }}
                 >
@@ -137,9 +132,7 @@ function ProjectsContent() {
                     </div>
                 </motion.div>
 
-                <button onClick={nextProject} className="hidden xl:block xl:text-left">
-                    <ArrowCircleRight size={32} />
-                </button>
+
 
             </div >
         </>

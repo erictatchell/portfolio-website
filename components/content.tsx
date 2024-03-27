@@ -5,7 +5,7 @@ import ProjectsContent from '@/components/projects-content';
 
 function Content() {
   // Initialize a state to hold the current content. Default is 'aboutme'.
-  const [content, setContent] = useState('aboutme');
+  const [content, setContent] = useState('bio');
   // State to check if we are in the client
   const [isClient, setIsClient] = useState(false);
 
@@ -13,7 +13,7 @@ function Content() {
     // Set isClient to true to indicate we are now in the client
     setIsClient(true);
     // Access `window` safely after confirming we're on the client side
-    setContent(window.location.hash.replace('#', '') || 'aboutme');
+    setContent(window.location.hash.replace('#', '') || 'bio');
 
     const handleHashChange = () => {
       setContent(window.location.hash.replace('#', ''));
@@ -28,7 +28,7 @@ function Content() {
   // Render content based on the current hash
   // This checks if we're on the client side before attempting to access `window`
   let contentComponent;
-  if (content === 'aboutme') {
+  if (content === 'bio') {
     contentComponent = <AboutMeContent />;
   } else if (content === 'projects') {
     contentComponent = <ProjectsContent />;

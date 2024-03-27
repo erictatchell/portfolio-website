@@ -53,7 +53,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
                 variants={modal}
             >
                 <p className='text-white tracking-wide text-lg'>etatchell@outlook.com</p>
-                <p className='mb-4 text-white font-extralight text-md'>I'll get back to you as soon as possible</p>
+                <p className='mb-4 text-white font-extralight text-md'>I&apos;ll get back to you as soon as possible</p>
                 <form onSubmit={handleSubmit}>
                     <input
                         type="email"

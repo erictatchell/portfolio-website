@@ -109,7 +109,7 @@ function ProjectsContent() {
 
     const viewText = (project: Project) => {
         if (project.name == "Unnamed UDP Game Server") {
-            return "Server source";
+            return "Server";
         } else return "View source"
     }
 
@@ -126,8 +126,8 @@ function ProjectsContent() {
 
         if (project.github2) {
             links.push(
-                <a key={project.github2} href={project.github2} className="inline-flex hover:bg-black hover:text-white border-black border-2 items-center px-2 py-1 text-xs md:text-sm font-medium mt-2">
-                    Interface source
+                <a key={project.github2} href={project.github2} className="inline-flex hover:bg-black hover:text-white border-black border-2 border-l-0 items-center px-2 py-1 text-xs md:text-sm font-medium mt-2">
+                    Interface
                     <svg className="rtl:rotate-180 w-3 h-3 ml-1" fill="none" viewBox="0 0 14 10">
                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                     </svg>
@@ -136,8 +136,8 @@ function ProjectsContent() {
         }
         if (project.github3) {
             links.push(
-                <a key={project.github3} href={project.github3} className="inline-flex hover:bg-black hover:text-white border-black border-2 items-center px-2 py-1 text-xs md:text-sm font-medium mt-2">
-                    Client source
+                <a key={project.github3} href={project.github3} className="inline-flex hover:bg-black hover:text-white border-black border-2 border-l-0 items-center px-2 py-1 text-xs md:text-sm font-medium mt-2">
+                    Client
                     <svg className="rtl:rotate-180 w-3 h-3 ml-1" fill="none" viewBox="0 0 14 10">
                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                     </svg>
@@ -150,7 +150,7 @@ function ProjectsContent() {
     };
 
     return (
-        <div className='pt-10 overflow-y-visible'>
+        <div className=''>
 
             <div className="flex flex-col items-center justify-center p-8 gap-4 md:flex-row md:items-center md:justify-center">
                 <motion.div className="flex"
@@ -180,7 +180,10 @@ function ProjectsContent() {
 
                             <p className="text-xs mt-4 uppercase text-black text-opacity-60">tech stack</p>
                             <p className="text-sm font-normal">{projects[currentProjectIndex].techStack}</p>
-                            {renderGithubLinks(projects[currentProjectIndex])}
+                            <div className='flex'>
+                                {renderGithubLinks(projects[currentProjectIndex])}
+
+                            </div>
                         </div>
                     </div>
                 </motion.div>

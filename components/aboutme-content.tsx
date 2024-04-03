@@ -40,7 +40,7 @@ function AboutMeContent() {
             }}
         >
             <section className="">
-                <div className="py-8 px-4 mx-auto max-w-screen-xl text-center pt-16">
+                <div className="px-4 mx-auto max-w-screen-xl text-center pt-16">
                     <div className='flex flex-cols-2 justify-center'>
                         <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-black md:text-5xl lg:text-6xl ">Hi There</h1>
                         <WavingHand />

@@ -72,6 +72,16 @@ function ProjectsContent() {
             githubLink: "https://github.com/erictatchell/Streams",
             image: "/img/streams.png",
             alt: "Streams Logo"
+        },
+        {
+            name: "erictatchell.com",
+            description: "Personal Website",
+            bio: "",
+            category: "Personal Project",
+            techStack: "TypeScript, NextJS 14, Resend API",
+            githubLink: "https://github.com/erictatchell/portfolio-website",
+            image: "/img/web.png",
+            alt: "Streams Logo"
         }
     ];
     const paginate = (newIndex: number) => {
@@ -111,6 +121,30 @@ function ProjectsContent() {
         if (project.name == "Unnamed UDP Game Server") {
             return "Server";
         } else return "View source"
+    }
+
+    const bioText = (project: Project) => {
+        if (project.description == "Personal Website") {
+            return (
+                <></>
+            );
+        } else return (
+            <>
+                <br></br>
+                <p className="text-xs uppercase font-light">story:</p>
+                <p className="text-sm">{projects[currentProjectIndex].bio}</p>
+            </>
+        );
+    }
+
+    const renderImage = (project: Project) => {
+        if (project.name == "Unnamed UDP Game Server") {
+            return (
+                <></>
+            );
+        } else return (
+            <img src={project.image} alt={project.alt} className="w-12 h-12 object-cover mb-3" />
+        );
     }
 
     const renderGithubLinks = (project: Project) => {
@@ -167,15 +201,14 @@ function ProjectsContent() {
                 >
                     <div className="max-w-sm  bg-transparent border-2 p-5 border-black rounded-none shadow-lg">
                         <div className="flex flex-col items-center md:block">
-                            <img src={projects[currentProjectIndex].image} alt={projects[currentProjectIndex].alt} className="w-24 h-24 object-cover mb-3" />
+                            {renderImage(projects[currentProjectIndex])}
                             <div className="text-center md:text-left">
                                 <h5 className="text-xl md:text-2xl font-bold">{projects[currentProjectIndex].name}</h5>
                                 <p className="text-lg">{projects[currentProjectIndex].description}</p>
                                 <p className="text-xs uppercase font-light">{projects[currentProjectIndex].category}</p>
                             </div>
-                            <br></br>
-                            <p className="text-xs uppercase font-light">BIO:</p>
-                            <p className="text-sm">{projects[currentProjectIndex].bio}</p>
+                            {bioText(projects[currentProjectIndex])}
+
 
 
                             <p className="text-xs mt-4 uppercase text-black text-opacity-60">tech stack</p>

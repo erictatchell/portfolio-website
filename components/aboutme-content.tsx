@@ -1,15 +1,12 @@
 // AboutMeContent.js
 "use client"
 import { useState } from 'react';
-import { Envelope, GithubLogo, LinkedinLogo } from "@phosphor-icons/react";
 import Email from './email';
 import { motion } from 'framer-motion';
 import WavingHand from './wave';
 
 function AboutMeContent() {
-    const [isGithubHovered, setIsGithubHovered] = useState(false);
-    const [isLinkedInHovered, setIsLinkedInHovered] = useState(false);
-    const [isEmailHovered, setIsEmailHovered] = useState(false);
+    
     const variants = {
         enter: (direction: number) => {
             return {
@@ -50,26 +47,16 @@ function AboutMeContent() {
                     </div>
 
                     <p className="text-lg font-normal text-slate-500 lg:text-xl sm:px-16 lg:px-48">
-                        I&apos;m a designer & developer with a special interest in networking and audio processing
+                        I&apos;m a designer & developer with a special interest in networking and audio processing.
+                    </p><br/>
+                    <p className="mb-8 text-lg font-normal text-slate-500 lg:text-xl sm:px-16 lg:px-48">
+                        I&apos;ve only been in computing since I started CST at BCIT in 2022, but I&apos;ve been into computers since I was a kid. I love building and benchmarking them, and computing
+                        is my way to connect me closer to that feeling.
                     </p>
                     <p className="mb-8 text-lg font-normal text-slate-500 lg:text-xl sm:px-16 lg:px-48">
-                        + golf, green tea, diet coke and Suits
+                        Outside computing, I have a toxic relationship with golf, and I love cars.
                     </p>
-                    <a href="https://github.com/erictatchell"
-                        className="hover:bg-black border-black border-2 mx-2 inline-flex justify-center items-center py-2 px-2 text-base font-medium text-center"
-                        onMouseEnter={() => setIsGithubHovered(true)}
-                        onMouseLeave={() => setIsGithubHovered(false)}>
-                        <GithubLogo size={32} color={isGithubHovered ? "#FFFFFF" : "initial"} />
-                        <p className="ml-1 font-semibold" style={{ color: isGithubHovered ? "#FFFFFF" : "initial" }}>GitHub</p>
-                    </a>
-                    <a href="https://www.linkedin.com/in/eftatchell/"
-                        className="hover:bg-blue-500 border-black border-2 mx-2 inline-flex justify-center items-center py-2 px-2 text-base font-medium text-center"
-                        onMouseEnter={() => setIsLinkedInHovered(true)}
-                        onMouseLeave={() => setIsLinkedInHovered(false)}>
-                        <LinkedinLogo size={32} color={isLinkedInHovered ? "#FFFFFF" : "initial"} />
-                        <p className="ml-1 font-semibold" style={{ color: isLinkedInHovered ? "#FFFFFF" : "initial" }}>LinkedIn</p>
-                    </a>
-                    <Email />
+                   
 
                 </div>
             </section>

@@ -1,9 +1,13 @@
 "use client"
 import { useState, useEffect } from 'react';
+import { Envelope, GithubLogo, LinkedinLogo } from "@phosphor-icons/react";
+import Email from './email';
 
 export default function Menu() {
     const [currentHash, setCurrentHash] = useState('#bio');
-
+    const [isGithubHovered, setIsGithubHovered] = useState(false);
+    const [isLinkedInHovered, setIsLinkedInHovered] = useState(false);
+    const [isEmailHovered, setIsEmailHovered] = useState(false);
     useEffect(() => {
         const updateHash = () => setCurrentHash(window.location.hash);
         // Call updateHash on mount to set the hash based on the URL or default to 'bio'
@@ -18,7 +22,7 @@ export default function Menu() {
         return () => window.removeEventListener('hashchange', updateHash, false);
     }, []);
 
-    const setHash = (hash:any) => {
+    const setHash = (hash: any) => {
         window.location.hash = hash;
     };
 
@@ -34,6 +38,22 @@ export default function Menu() {
             <button onClick={() => setHash('projects')} className={`col-start-1 inline-flex justify-center items-center px-3 py-2 text-xl font-medium text-center  hover:bg-black hover:text-white border-black border-2 rounded-none focus:outline-none focus:ring-0 ${currentHash === '#projects' ? 'bg-black text-white hover:bg-black' : 'hover:bg-black text-black hover:text-white'}`}>
                 <span className="text-left font-bold uppercase tracking-widest">Projects</span>
             </button>
+            <div className='flex'>
+            <a href="https://github.com/erictatchell"
+                className="hover:bg-black border-black border-2 mr-2 inline-flex justify-center items-center py-2 px-2 text-base font-medium text-center"
+                onMouseEnter={() => setIsGithubHovered(true)}
+                onMouseLeave={() => setIsGithubHovered(false)}>
+                <GithubLogo size={32} color={isGithubHovered ? "#FFFFFF" : "initial"} />
+            </a>
+            <a href="https://www.linkedin.com/in/eftatchell/"
+                className="hover:bg-blue-500 border-black border-2 mx-2 inline-flex justify-center items-center py-2 px-2 text-base font-medium text-center"
+                onMouseEnter={() => setIsLinkedInHovered(true)}
+                onMouseLeave={() => setIsLinkedInHovered(false)}>
+                <LinkedinLogo size={32} color={isLinkedInHovered ? "#FFFFFF" : "initial"} />
+            </a>
+            <Email />
+            </div>
+            
         </div>
     );
 }

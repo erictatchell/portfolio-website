@@ -96,7 +96,7 @@ const Email: React.FC = () => {
 
     return (
         <>
-            <a href="#" onClick={(e) => { e.preventDefault(); setModalOpen(true); }} className="hover:bg-red-300 border-black border-2 mx-4 inline-flex justify-center items-center py-2 px-2 text-base font-medium text-center">
+            <a href="#" onClick={(e) => { e.preventDefault(); setModalOpen(true); }} className="hover:bg-red-300 border-black border-2 ml-2 inline-flex justify-center items-center py-2 px-2 text-base font-medium text-center">
                 <Envelope size={32} />
             </a>
             <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />

@@ -53,7 +53,7 @@ function AboutMeContent() {
                         I&apos;m a designer & developer with a special interest in networking and audio processing
                     </p>
                     <p className="mb-8 text-lg font-normal text-slate-500 lg:text-xl sm:px-16 lg:px-48">
-                        + golf, green tea and Suits on Netflix
+                        + golf, green tea, diet coke and Suits
                     </p>
                     <a href="https://github.com/erictatchell"
                         className="hover:bg-black border-black border-2 mx-2 inline-flex justify-center items-center py-2 px-2 text-base font-medium text-center"
@@ -67,7 +67,7 @@ function AboutMeContent() {
                         onMouseEnter={() => setIsLinkedInHovered(true)}
                         onMouseLeave={() => setIsLinkedInHovered(false)}>
                         <LinkedinLogo size={32} color={isLinkedInHovered ? "#FFFFFF" : "initial"} />
-                        <p className="ml-1 font-semibold" style={{ color: isLinkedInHovered ? "#FFFFFF" : "initial" }}>LockedIn</p>
+                        <p className="ml-1 font-semibold" style={{ color: isLinkedInHovered ? "#FFFFFF" : "initial" }}>LinkedIn</p>
                     </a>
                     <Email />
 

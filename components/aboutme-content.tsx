@@ -54,7 +54,6 @@ function AboutMeContent() {
                         is my way to connect me closer to that feeling.
                     </p>
                     <p className="mb-8 text-lg font-normal text-slate-500 lg:text-xl sm:px-16 lg:px-48">
-                        Outside computing, I have a toxic relationship with golf, and I love cars.
                     </p>
                    
 

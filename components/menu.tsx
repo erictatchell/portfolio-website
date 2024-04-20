@@ -49,7 +49,7 @@ export default function Menu() {
                     onMouseLeave={() => setIsGithubHovered(false)}>
                     <GithubLogo size={24} weight="fill" color={isGithubHovered ? "#FFFFFF" : "initial"} />
                 </a>
-                <a href="https://www.linkedin.com/in/eftatchell/"
+                <a href="https://www.linkedin.com/in/etatchell/"
                     className="hover:bg-blue-500 border-black border-2 inline-flex justify-center items-center text-base font-medium text-center"
                     onMouseEnter={() => setIsLinkedInHovered(true)}
                     onMouseLeave={() => setIsLinkedInHovered(false)}>

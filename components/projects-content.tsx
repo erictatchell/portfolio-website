@@ -6,30 +6,32 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
+// structure of a project
 interface Project {
+    video?: string;
     name: string;
     description: string;
     bio: string;
     category: string;
     techStack: string;
-    githubLink: string;
     image?: string;
     alt?: string;
+    github1: string;
     github2?: string;
     github3?: string;
 }
 
 function ProjectsContent() {
     const [currentProjectIndex, setCurrentProjectIndex] = useState<number>(0);
-    const [animationDirection, setAnimationDirection] = useState<string>('next');
     const projects: Project[] = [
         {
+            video: "/img/winewhisperer.mp4",
             name: "WineWhisperer",
             description: "GPT-3 Wine Recommendation App",
             bio: "For my final project of first year CST, I worked with 3 teammates to deliver WineWhisperer, an AI powered wine recommendation app with data retrieved from a Kaggle dataset. This project taught me a lot about thinking on my feet, experimenting with new tech and taking risks.",
             category: "Academic Project",
-            techStack: "TypeScript, MongoDB, NextJS 12, NextAuth.js, Kaggle dataset, OpenAI API",
-            githubLink: "https://github.com/erictatchell/2800-202310-BBY29",
+            techStack: "TypeScript, MongoDB, NextJS 13, NextAuth.js, Kaggle dataset, OpenAI API",
+            github1: "https://github.com/erictatchell/2800-202310-BBY29",
             image: "/img/purple_logo.png",
             alt: "WW Logo"
         },
@@ -39,7 +41,7 @@ function ProjectsContent() {
             bio: "This project was my demonstration of what I learned in my first OOP class. I worked with 2 other teammates to develop a retro style driving minigame. This project greatly helped me conceptualize OOP as a concept and was a great segue to learning C++.",
             category: "Academic Project",
             techStack: "Java, Processing.org API, MongoDB leaderboard",
-            githubLink: "https://github.com/erictatchell/project-dui-infinite",
+            github1: "https://github.com/erictatchell/project-dui-infinite",
             image: "/img/DUI.png",
             alt: "DUI Logo"
         },
@@ -49,7 +51,7 @@ function ProjectsContent() {
             bio: "My introduction to working in Digital Processing was creating a Win32 powered audio analyser project. This app can perform DFT to retrieve the frequencies of selected samples of a WAV file, and perform lowpass and highpass filtering on them. It supports 8 and 16 bit recording, with saving/opening in WAV format. This project taught me a lot about audio processing, using DLLs and was very fascinating to learn about.",
             category: "Academic Project",
             techStack: "C, C# Interface, Win32 API",
-            githubLink: "https://github.com/erictatchell/WaveCraft",
+            github1: "https://github.com/erictatchell/WaveCraft",
             image: "/img/wavecraft.png",
             alt: "WaveCraft Logo"
         },
@@ -59,7 +61,7 @@ function ProjectsContent() {
             bio: "My gaming systems course put me in a 10 person group to work on separate individual parts of a D3D12 game. I was tasked with developing the server-side code, and I found it a lot more interesting than I thought I would. I learned a lot about UDP networking, why its better than TCP for gaming, packet structure and much more. I continue to optimize this project in my own time to refine my networking skills.",
             category: "Academic Project / Personal Project",
             techStack: "C++, C# Interface, D3D12 client, Winsock 2 API",
-            githubLink: "https://github.com/erictatchell/UDP-Game-Server",
+            github1: "https://github.com/erictatchell/UDP-Game-Server",
             github2: "https://github.com/erictatchell/UDP-Game-Server-Interface",
             github3: "https://github.com/erictatchell/StencilDemo-Networking"
         },
@@ -69,7 +71,7 @@ function ProjectsContent() {
             bio: "For my very first project in CST (and computing as a whole), I worked with a partner to create Streams, a spending tracker designed for students. Streams was an opportunity for us to stretch our arms a little bit in JavaScript and Firebase, mainly involving basic counting and number tracking on a user to user basis.",
             category: "Academic Project",
             techStack: "HTML, CSS, JS, Bootstrap, Firestore",
-            githubLink: "https://github.com/erictatchell/Streams",
+            github1: "https://github.com/erictatchell/Streams",
             image: "/img/streams.png",
             alt: "Streams Logo"
         },
@@ -79,14 +81,11 @@ function ProjectsContent() {
             bio: "",
             category: "Personal Project",
             techStack: "TypeScript, NextJS 14, Resend API",
-            githubLink: "https://github.com/erictatchell/portfolio-website",
+            github1: "https://github.com/erictatchell/portfolio-website",
             image: "/img/web.png",
             alt: "Streams Logo"
         }
     ];
-    const paginate = (newIndex: number) => {
-        setCurrentProjectIndex(newIndex);
-    };
 
     const variants = {
         enter: (direction: number) => {
@@ -110,20 +109,20 @@ function ProjectsContent() {
     };
 
     const nextProject = () => {
-        paginate((currentProjectIndex + 1) % projects.length);
+        setCurrentProjectIndex((currentProjectIndex + 1 + projects.length) % projects.length);
     };
 
     const prevProject = () => {
-        paginate((currentProjectIndex - 1 + projects.length) % projects.length);
+        setCurrentProjectIndex((currentProjectIndex - 1 + projects.length) % projects.length);
     };
 
-    const viewText = (project: Project) => {
+    const renderText = (project: Project) => {
         if (project.name == "Unnamed UDP Game Server") {
             return "Server";
         } else return "View source"
     }
 
-    const bioText = (project: Project) => {
+    const renderBio = (project: Project) => {
         if (project.description == "Personal Website") {
             return (
                 <></>
@@ -147,47 +146,75 @@ function ProjectsContent() {
         );
     }
 
+    const renderVideo = (project: Project) => {
+        if (project.name == "WineWhisperer") {
+            return (
+                <video width="320" height="240" controls preload="none" className='mb-3'>
+                    <source src={projects[currentProjectIndex].video} type="video/mp4" />
+                    <track
+                        src="/path/to/captions.vtt"
+                        kind="subtitles"
+                        srcLang="en"
+                        label="English"
+                    />
+                    Your browser does not support the video tag.
+                </video>
+            )
+        } else {
+            return (
+                <></>
+            )
+        }
+    }
+
+    const getGitHubLink = (project: Project, i: number) => {
+        return project[`github${i}` as keyof Project];
+    }
+
     const renderGithubLinks = (project: Project) => {
         const links = [];
-        links.push(
-            <a key={project.githubLink} href={project.githubLink} className="inline-flex hover:bg-black hover:text-white border-black border-2 items-center px-2 py-1 text-xs md:text-sm font-medium mt-2">
-                {viewText(project)}
-                <svg className="rtl:rotate-180 w-3 h-3 ml-1" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                </svg>
-            </a>
+        // Either 3 or 1
+        let numLinks = project.github2 && project.github3 ? 3 : 1;
+        for (let i = 1; i < numLinks; i++) {
+            links.push(
+                <a key={getGitHubLink(project, i)} href={getGitHubLink(project, i)} className="inline-flex hover:bg-black hover:text-white border-black border-2 items-center px-2 py-1 text-xs md:text-sm font-medium mt-2">
+                    {renderText(project)}
+                    <svg className="rtl:rotate-180 w-3 h-3 ml-1" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                    </svg>
+                </a>
+            );
+        }
+        return (
+            <div className='flex'>
+                {links}
+            </div>
         );
-
-        if (project.github2) {
-            links.push(
-                <a key={project.github2} href={project.github2} className="inline-flex hover:bg-black hover:text-white border-black border-2 border-l-0 items-center px-2 py-1 text-xs md:text-sm font-medium mt-2">
-                    Interface
-                    <svg className="rtl:rotate-180 w-3 h-3 ml-1" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                    </svg>
-                </a>
-            );
-        }
-        if (project.github3) {
-            links.push(
-                <a key={project.github3} href={project.github3} className="inline-flex hover:bg-black hover:text-white border-black border-2 border-l-0 items-center px-2 py-1 text-xs md:text-sm font-medium mt-2">
-                    Client
-                    <svg className="rtl:rotate-180 w-3 h-3 ml-1" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                    </svg>
-                </a>
-
-            );
-        }
-
-        return links;
     };
 
-    return (
-        <div className=''>
+    const renderBasicInfo = (project: Project) => {
+        return (
+            <div className="text-center md:text-left">
+                <h5 className="text-xl md:text-2xl font-bold">{project.name}</h5>
+                <p className="text-lg">{project.description}</p>
+                <p className="text-xs uppercase font-light">{project.category}</p>
+            </div>
+        )
+    }
 
+    const renderTechStack = (project: Project) => {
+        return (
+            <>
+                <p className="text-xs mt-4 uppercase text-black text-opacity-60">tech stack</p>
+                <p className="text-sm font-normal">{project.techStack}</p>
+            </>
+        )
+    }
+
+    return (
+        <>
             <div className="flex flex-col items-center justify-center p-8 gap-4 md:flex-row md:items-center md:justify-center">
-                <motion.div className="flex"
+                <motion.div
                     key={currentProjectIndex}
                     custom={currentProjectIndex}
                     variants={variants}
@@ -199,31 +226,19 @@ function ProjectsContent() {
                         opacity: { duration: 0.2 }
                     }}
                 >
+
                     <div className="max-w-sm  bg-transparent border-2 p-5 border-black rounded-none shadow-lg">
                         <div className="flex flex-col items-center md:block">
+                            {renderVideo(projects[currentProjectIndex])}
                             {renderImage(projects[currentProjectIndex])}
-                            <div className="text-center md:text-left">
-                                <h5 className="text-xl md:text-2xl font-bold">{projects[currentProjectIndex].name}</h5>
-                                <p className="text-lg">{projects[currentProjectIndex].description}</p>
-                                <p className="text-xs uppercase font-light">{projects[currentProjectIndex].category}</p>
-                            </div>
-                            {bioText(projects[currentProjectIndex])}
-
-
-
-                            <p className="text-xs mt-4 uppercase text-black text-opacity-60">tech stack</p>
-                            <p className="text-sm font-normal">{projects[currentProjectIndex].techStack}</p>
-                            <div className='flex'>
-                                {renderGithubLinks(projects[currentProjectIndex])}
-
-                            </div>
+                            {renderBasicInfo(projects[currentProjectIndex])}
+                            {renderBio(projects[currentProjectIndex])}
+                            {renderTechStack(projects[currentProjectIndex])}
+                            {renderGithubLinks(projects[currentProjectIndex])}
                         </div>
                     </div>
                 </motion.div>
-
-
-
-            </div >
+            </div>
             <div className='flex justify-center items-center'>
                 <button onClick={prevProject} className="mr-4  ">
                     <ArrowCircleLeft size={32} />
@@ -234,7 +249,7 @@ function ProjectsContent() {
                     <ArrowCircleRight size={32} />
                 </button>
             </div>
-        </div>
+        </>
     );
 }
 

@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Envelope, GithubLogo, LinkedinLogo } from "@phosphor-icons/react";
 import Email from './email';
 
@@ -28,10 +29,23 @@ export default function Menu() {
 
     return (
         <div className="grid sm:grid-cols-1 sm:grid-rows-1 pb-12 gap-4 items-center">
-            <span>
-                <h1 className="text-2xl text-opacity-100 font-bold">_</h1>
-                <p className="text-black text-opacity-100 text-xl text-left lowercase tracking-widest">eric tatchell</p>
-            </span>
+
+            <div className='mx-3'>
+                <div className='flex '>
+                    <Image
+                        src="/img/linkedin.jpg"
+                        width={60}
+                        height={60}
+                        alt=""
+                        className='rounded-full'
+                    />
+                    {/*<h1 className="text-2xl text-opacity-100 font-bold">_</h1>*/}
+
+                    <p className="text-black font-bold text-opacity-100 text-xl text-left self-center ml-3 tracking-widest">Eric Tatchell</p>
+                </div>
+
+
+            </div>
             <div className='flex mx-3'>
                 <button onClick={() => setHash('bio')} className={`col-start-1 inline-flex border-r justify-center items-center px-3 py-2 text-xl font-medium text-center border-2 border-black rounded-none focus:outline-none focus:ring-0 ${currentHash === '#bio' ? 'bg-black text-white hover:bg-black' : 'hover:bg-black text-black hover:text-white'}`}>
                     <span className="text-left font-bold uppercase tracking-widest">bio</span>

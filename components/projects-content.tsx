@@ -116,9 +116,21 @@ function ProjectsContent() {
         setCurrentProjectIndex((currentProjectIndex - 1 + projects.length) % projects.length);
     };
 
-    const renderText = (project: Project) => {
-        if (project.name == "Unnamed UDP Game Server") {
-            return "Server";
+    const changeProject = () => {
+        let direction = true ? -1 : 1;
+        setCurrentProjectIndex((currentProjectIndex + direction + projects.length) % projects.length);
+    };
+
+    const renderText = (project: Project, i: number) => {
+        if (project.github2) {
+            switch (i + 1) {
+                case 1:
+                    return "Server";
+                case 2:
+                    return "Interface";
+                case 3:
+                    return "Client";
+            }
         } else return "View source"
     }
 
@@ -160,25 +172,21 @@ function ProjectsContent() {
                     Your browser does not support the video tag.
                 </video>
             )
-        } else {
-            return (
-                <></>
-            )
         }
     }
 
     const getGitHubLink = (project: Project, i: number) => {
-        return project[`github${i}` as keyof Project];
+        return project[`github${i + 1}` as keyof Project];
     }
 
     const renderGithubLinks = (project: Project) => {
         const links = [];
-        // Either 3 or 1
-        let numLinks = project.github2 && project.github3 ? 3 : 1;
-        for (let i = 1; i < numLinks; i++) {
+        // Either 3 or 1, if 2 exists so does 3
+        let numLinks = project.github2 ? 3 : 1;
+        for (let i = 0; i < numLinks; i++) {
             links.push(
                 <a key={getGitHubLink(project, i)} href={getGitHubLink(project, i)} className="inline-flex hover:bg-black hover:text-white border-black border-2 items-center px-2 py-1 text-xs md:text-sm font-medium mt-2">
-                    {renderText(project)}
+                    {renderText(project, i)}
                     <svg className="rtl:rotate-180 w-3 h-3 ml-1" fill="none" viewBox="0 0 14 10">
                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                     </svg>
@@ -245,7 +253,7 @@ function ProjectsContent() {
                 </button>
                 <h1 className='text-xl font-bold uppercase'>{currentProjectIndex + 1} / {projects.length}</h1>
 
-                <button onClick={nextProject} className="ml-4 ">
+                <button onClick={changeProject} className="ml-4 ">
                     <ArrowCircleRight size={32} />
                 </button>
             </div>

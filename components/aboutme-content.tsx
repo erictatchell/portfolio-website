@@ -1,5 +1,4 @@
 // AboutMeContent.js
-"use client"
 import { useState } from 'react';
 import Email from './email';
 import { motion } from 'framer-motion';

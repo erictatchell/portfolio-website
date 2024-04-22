@@ -64,12 +64,6 @@
   font-style: normal;
 }
 
-body {
-  font-family: 'Helvetica', sans-serif;
-  /* Fallback to sans-serif if CustomFont isn't available */
-  background-image: '../public/img/bg.jpg'
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -93,21 +87,22 @@ body {
 
 body {
   font-family: 'Helvetica', sans-serif;
-  /* Fallback to sans-serif if CustomFont isn't available */
-  background-image: url('../public/img/bg.jpg'), linear-gradient(to bottom,
-      rgba(var(--background-start-rgb), 0.3),
-      /* Keep these transparent for visibility */
-      rgba(var(--background-end-rgb), 0.8));
+  background-image: url('../public/img/bg.jpg'), linear-gradient(to bottom, rgba(var(--background-start-rgb), 0.3), rgba(var(--background-end-rgb), 0.8));
   background-blend-mode: overlay;
-  
   color: rgb(var(--foreground-rgb));
-  background-size: cover;
-  /* Stretch and cover the entire page */
-  background-position: center;
-  /* Center the background image */
-  background-repeat: no-repeat;
-  /* Prevent repeating the background image */
+  background-size: cover; /* Stretch and cover the entire page */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent repeating the background image */
 }
+
+/* Media query for devices with max-width of 768px (common breakpoint for tablets and below) */
+@media (max-width: 768px) {
+  body {
+    background-size: auto; /* Ensure the image fits within the viewport */
+    background-position: top center; /* Adjust if necessary to better fit your specific image */
+  }
+}
+
 
 
 @layer utilities {

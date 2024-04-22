@@ -8,7 +8,7 @@ export default function Home() {
       <div className='flex md:items-center lg:px-16 justify-center'>
         <Content />
       </div>
-       <div className='flex items-end md:items-center justify-center'>
+       <div className='flex items-end pb-20 md:items-center justify-center'>
         <Menu />
       </div>
     </div >

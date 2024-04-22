@@ -1,6 +1,7 @@
 import { GithubLogo, LinkedinLogo } from "@phosphor-icons/react";
 import Email from "./email";
 import { useState } from "react";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 export default function Socials() {
 
@@ -20,7 +21,7 @@ export default function Socials() {
                 className="hover:bg-blue-500 border-black border inline-flex justify-center items-center text-base font-medium text-center"
                 onMouseEnter={() => setIsLinkedInHovered(true)}
                 onMouseLeave={() => setIsLinkedInHovered(false)}>
-                <LinkedinLogo size={32} color={isLinkedInHovered ? "#FFFFFF" : "initial"} />
+                <LinkedinLogo size={32} weight="fill" color={isLinkedInHovered ? "#FFFFFF" : "initial"} />
             </a>
         </div>
     )

@@ -8,18 +8,22 @@ import Socials from './socials';
 
 export default function Menu() {
     return (
-        <div className='flex md:grid md:items-center justify-center items-end'>
-            <div className="flex flex-cols-2 md:grid-cols-1 md:grid justify-center items-center gap-3 mb-12 md:mb-0">
-                <div className='max-sm:hidden'>
-                    <NameCard />
-                </div>
-                <div className='flex justify-end md:justify-center'>
-                    <Tabs />
-                </div>
-                <div className='flex justify-start md:justify-center'>
-                    <Socials />
+        <div className='md:shadow-3xl md:backdrop-blur-md md:p-5 mr-4'>
+
+            <div className='flex md:grid md:items-center py-8 justify-center items-end'>
+                <div className="flex flex-cols-2 md:grid-cols-1 md:grid justify-center items-center gap-3 md:mb-0">
+                    <div className='max-sm:hidden'>
+                        <NameCard />
+                    </div>
+                    <div className='flex justify-end md:justify-center'>
+                        <Tabs />
+                    </div>
+                    <div className='flex justify-start md:justify-center'>
+                        <Socials />
+                    </div>
                 </div>
             </div>
         </div>
+
     );
 }

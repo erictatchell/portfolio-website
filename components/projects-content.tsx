@@ -1,4 +1,4 @@
-// ProjectsContent.js
+// ProjectsContent.tsx
 import { ArrowCircleRight, ArrowCircleLeft } from "@phosphor-icons/react";
 import { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -46,6 +46,9 @@ interface Project {
 
 function ProjectsContent() {
     const [currentProjectIndex, setCurrentProjectIndex] = useState<number>(0);
+    const [isNextHovered, setNextHovered] = useState(false);
+    const [isLeftHovered, setLeftHovered] = useState(false);
+
     const projects: Project[] = [
         {
             video: new Link(0, "View demo", "https://www.youtube.com/watch?v=4r4Dfbpwql8"),
@@ -102,6 +105,7 @@ function ProjectsContent() {
             name: "erictatchell.com",
             description: "Personal Website",
             category: "Personal Project",
+            bio: "Building this website greatly enhanced my React/NextJS skills. I aimed to use as little external help as possible when implementing my mock designs to refine my Tailwind skills. I am now a lot more confident in responsive web design!",
             techStack: "TypeScript, NextJS 14, Resend API",
             github1: new Link(1, "View source", "https://github.com/erictatchell/portfolio-website"),
             image: "/img/web.png",
@@ -114,7 +118,7 @@ function ProjectsContent() {
     const variants = {
         enter: (direction: number) => {
             return {
-                x: direction > 0 ? 1000 : -1000,
+                x: direction > 0 ? 200 : -200,
                 opacity: 0
             };
         },
@@ -126,7 +130,7 @@ function ProjectsContent() {
         exit: (direction: number) => {
             return {
                 zIndex: 0,
-                x: direction < 0 ? 1000 : -1000,
+                x: direction < 0 ? 200 : -200,
                 opacity: 0
             };
         }
@@ -168,7 +172,7 @@ function ProjectsContent() {
         const linkElements: any = [];
         links.forEach(link => {
             linkElements.push(
-                <a key={link.type} href={link.url} className="inline-flex hover:bg-black hover:text-white border-black border-2 items-center px-2 py-1 text-xs md:text-sm font-medium mt-2">
+                <a key={link.type} href={link.url} className="inline-flex hover:bg-black hover:text-white border-black border items-center px-2 py-1 mr-2 text-xs md:text-sm font-medium mt-2">
                     {link.text}
                     <svg className="rtl:rotate-180 w-3 h-3 ml-1" fill="none" viewBox="0 0 14 10">
                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
@@ -205,10 +209,27 @@ function ProjectsContent() {
 
     return (
         <div>
+            <div className="backdrop-blur-sm p-4 ">
+                <div className="flex items-center  justify-center">
+                    <button onClick={() => changeProject(-1)} className="mr-4  "
+                    onMouseEnter={() => setLeftHovered(true)}
+                    onMouseLeave={() => setLeftHovered(false)}>
+                        <ArrowCircleLeft size={32} weight={isLeftHovered ? "fill" : "regular"}/>
+                    </button>
+                    <h1 className='text-xl font-bold uppercase'>{currentProjectIndex + 1} / {projects.length}</h1>
 
-            <div className="flex flex-col items-center justify-center p-8 gap-4 md:flex-row md:items-center md:justify-center">
-                <motion.div key={currentProjectIndex} custom={currentProjectIndex} variants={variants} initial="enter" animate="center" exit="exit" transition={{ x: { type: "spring", stiffness: 400, damping: 30 }, opacity: { duration: 0.2 } }}>
-                    <div className="max-w-sm bg-transparent border-2 p-5 border-black rounded-none shadow-lg">
+                    <button onClick={() => changeProject(1)} className="ml-4"
+                    onMouseEnter={() => setNextHovered(true)}
+                    onMouseLeave={() => setNextHovered(false)}>
+                        <ArrowCircleRight size={32} weight={isNextHovered ? "fill" : "regular"}/>
+                    </button>
+                </div>
+            </div>
+
+
+            <div className="flex justify-center">
+                <motion.div key={currentProjectIndex} custom={currentProjectIndex} variants={variants} initial="enter" animate="center" exit="exit" transition={{ x: { type: "spring", stiffness: 600, damping: 50 }, opacity: { duration: 0 } }}>
+                    <div className="max-w-sm shadow-3xl backdrop-blur-md bg-transparent p-5 rounded-none shadow-lg">
                         <div className="flex flex-col items-center md:block">
                             {renderImage(project)}
                             {renderBasicInfo(project)}
@@ -218,17 +239,6 @@ function ProjectsContent() {
                         </div>
                     </div>
                 </motion.div>
-            </div>
-
-            <div className='flex justify-center items-center'>
-                <button onClick={() => changeProject(-1)} className="mr-4  ">
-                    <ArrowCircleLeft size={32} />
-                </button>
-                <h1 className='text-xl font-bold uppercase'>{currentProjectIndex + 1} / {projects.length}</h1>
-
-                <button onClick={() => changeProject(1)} className="ml-4 ">
-                    <ArrowCircleRight size={32} />
-                </button>
             </div>
         </div>
     );

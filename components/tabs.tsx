@@ -20,11 +20,11 @@ export default function Tabs() {
     };
     return (
         <div className='flex mx-3'>
-            <button onClick={() => setHash('bio')} className={`col-start-1 inline-flex border-r justify-center items-center px-3 py-2 text-xl font-medium text-center border-2 border-black rounded-none focus:outline-none focus:ring-0 ${currentHash === '#bio' ? 'bg-black text-white hover:bg-black' : 'hover:bg-gray-700 text-black hover:text-white'}`}>
-                <span className="text-left font-bold uppercase tracking-widest">bio</span>
+            <button onClick={() => setHash('bio')} className={`col-start-1 inline-flex border-r mr-2 justify-center items-center px-3 py-2 text-xl font-medium text-center border border-black rounded-none focus:outline-none focus:ring-0 ${currentHash === '#bio' ? 'bg-[#B3004C] text-white hover:bg-[#B3004C]' : 'hover:bg-[#B3004C] hover:bg-opacity-20 hover:backdrop-blur-[1.5px] text-black hover:text-white'}`}>
+                <span className="text-left font-semibold uppercase tracking-widest">bio</span>
             </button>
-            <button onClick={() => setHash('projects')} className={`col-start-1 inline-flex justify-center items-center px-3 py-2 text-xl font-medium text-center  hover:bg-black hover:text-white border-black border-2 rounded-none focus:outline-none focus:ring-0 ${currentHash === '#projects' ? 'bg-black text-white hover:bg-black' : 'hover:bg-gray-700 text-black hover:text-white'}`}>
-                <span className="text-left font-bold uppercase tracking-widest">Projects</span>
+            <button onClick={() => setHash('projects')} className={`col-start-1 inline-flex justify-center items-center px-3 py-2 text-xl font-medium text-center hover:text-white border-black border rounded-none focus:outline-none focus:ring-0 ${currentHash === '#projects' ? 'bg-[#B3004C] text-white hover:bg-[#B3004C]' : 'hover:bg-[#B3004C] hover:bg-opacity-20 hover:backdrop-blur-[1.5px] text-black hover:text-white'}`}>
+                <span className="text-left font-semibold uppercase tracking-widest">Projects</span>
             </button>
         </div>
     )

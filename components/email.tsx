@@ -50,7 +50,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             exit="hidden"
         >
             <motion.div
-                className="shadow bg-white bg-opacity-20 border-white border-2 p-6"
+                className="shadow bg-white bg-opacity-20 border-white border p-6"
                 variants={modal}
             >
                 <p className='text-white tracking-wide text-lg'>etatchell@outlook.com</p>
@@ -61,7 +61,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
                         placeholder="email address"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full bg-transparent placeholder-white border-2 focus:outline-none focus:ring-0 active:outline-none border-white text-white p-2 mb-4"
+                        className="w-full bg-transparent placeholder-white border focus:outline-none focus:ring-0 active:outline-none border-white text-white p-2 mb-4"
                         required
                     />
                     <input
@@ -69,21 +69,21 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
                         placeholder="subject"
                         value={subject}
                         onChange={(e) => setSubject(e.target.value)}
-                        className="w-full bg-transparent placeholder-white border-2 focus:outline-none focus:ring-0 active:outline-none border-white text-white p-2 mb-4"
+                        className="w-full bg-transparent placeholder-white border focus:outline-none focus:ring-0 active:outline-none border-white text-white p-2 mb-4"
                         required
                     />
                     <textarea
                         placeholder=""
                         value={body}
                         onChange={(e) => setBody(e.target.value)}
-                        className="w-full bg-transparent border-2 placeholder-white focus:outline-none focus:ring-0 active:outline-none border-white text-white p-2 mb-4 h-40"
+                        className="w-full bg-transparent border placeholder-white focus:outline-none focus:ring-0 active:outline-none border-white text-white p-2 mb-4 h-40"
                         required
                     ></textarea>
 
-                    <button type="submit" className="hover:bg-white hover:text-black uppercase px-4 py-2 text-white font-bold border-2 border-white">
+                    <button type="submit" className="hover:bg-white hover:text-black uppercase px-4 py-2 text-white font-bold border border-white">
                         Send
                     </button>
-                    <button onClick={onClose} className="ml-4 hover:bg-white hover:text-black uppercase px-4 py-2 text-white font-bold border-2 border-white">
+                    <button onClick={onClose} className="ml-4 hover:bg-white hover:text-black uppercase px-4 py-2 text-white font-bold border border-white">
                         Close
                     </button>
                 </form>
@@ -96,7 +96,7 @@ const Email: React.FC = () => {
 
     return (
         <>
-            <a href="#" onClick={(e) => { e.preventDefault(); setModalOpen(true); }} className="hover:bg-red-300 border-black border-2 inline-flex justify-center items-center text-base font-medium text-center">
+            <a href="#" onClick={(e) => { e.preventDefault(); setModalOpen(true); }} className="hover:bg-red-300 border-black border inline-flex justify-center items-center text-base font-medium text-center">
                 <Envelope size={32} />
             </a>
             <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />

@@ -35,7 +35,7 @@ function Content() {
   }
 
   return (
-    <div className='grid items-center'>
+    <div>
       {isClient && contentComponent}
     </div>
   );

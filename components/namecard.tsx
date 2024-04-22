@@ -8,7 +8,7 @@ export default function NameCard() {
                 width={60}
                 height={60}
                 alt=""
-                className='rounded-full'
+                className='rounded-full border border-black'
             />
             <p className="text-black font-bold text-opacity-100 text-xl text-left self-center ml-3 tracking-widest">Eric Tatchell</p>
         </div>

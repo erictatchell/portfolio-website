@@ -1,7 +1,4 @@
 "use client"
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Email from './email';
 import NameCard from './namecard';
 import Tabs from './tabs';
 import Socials from './socials';

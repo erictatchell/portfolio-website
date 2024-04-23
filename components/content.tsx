@@ -1,37 +1,34 @@
 "use client"
 import { useEffect, useState } from 'react';
-import AboutMeContent from '@/components/aboutme-content';
-import ProjectsContent from '@/components/projects-content';
+import BioContent from '@/components/bio/bio-content';
+import ProjectsContent from '@/components/projects/projects-content';
+import { ProjectList } from './projects/projects';
 
-function Content() {
-  // Initialize a state to hold the current content. Default is 'aboutme'.
+function Content() {  
   const [content, setContent] = useState('bio');
-  // State to check if we are in the client
   const [isClient, setIsClient] = useState(false);
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 
   useEffect(() => {
-    // Set isClient to true to indicate we are now in the client
     setIsClient(true);
-    // Access `window` safely after confirming we're on the client side
     setContent(window.location.hash.replace('#', '') || 'bio');
 
     const handleHashChange = () => {
       setContent(window.location.hash.replace('#', ''));
     };
-
     window.addEventListener('hashchange', handleHashChange, false);
-
-    // Cleanup the event listener on component unmount
     return () => window.removeEventListener('hashchange', handleHashChange, false);
   }, []);
 
-  // Render content based on the current hash
-  // This checks if we're on the client side before attempting to access `window`
   let contentComponent;
   if (content === 'bio') {
-    contentComponent = <AboutMeContent />;
+    contentComponent = <BioContent />;
   } else if (content === 'projects') {
-    contentComponent = <ProjectsContent />;
+    contentComponent = <ProjectsContent
+      projects={ProjectList}
+      currentProjectIndex={currentProjectIndex}
+      setCurrentProjectIndex={setCurrentProjectIndex}
+    />;
   }
 
   return (

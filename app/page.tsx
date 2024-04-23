@@ -1,4 +1,4 @@
-import Menu from '@/components/menu';
+import Menu from '@/components/menu/menu';
 import Content from '@/components/content';
 export default function Home() {
   /* https://stackoverflow.com/questions/66556514/tailwind-grid-template-columns */

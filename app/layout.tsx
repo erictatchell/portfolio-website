@@ -8,6 +8,9 @@ const inter = Roboto_Mono({ subsets: [] });
 export const metadata: Metadata = {
   title: "Eric Tatchell",
   description: "Software Developer & Designer",
+  icons: {
+    icon: "./favicon.ico",
+  },
 };
 
 export default function RootLayout({

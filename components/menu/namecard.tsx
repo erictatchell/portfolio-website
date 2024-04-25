@@ -10,7 +10,7 @@ export default function NameCard() {
                 alt=""
                 className='rounded-full border border-black'
             />
-            <p className="text-black font-bold text-opacity-100 text-xl text-left self-center ml-3 tracking-widest">Eric Tatchell</p>
+            <p className="text-black font-bold text-opacity-100 text-xl text-left self-center ml-3 max-sm:text-lg tracking-widest">Eric Tatchell</p>
         </div>
     )
 }

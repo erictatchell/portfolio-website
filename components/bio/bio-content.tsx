@@ -15,10 +15,10 @@ function BioContent() {
                 </div>
                 <div className=''>
                     <p className="text-lg font-normal text-slate-500 lg:text-xl">
-                        I&apos;m a designer & developer with a special interest in networking and audio processing.
+                        I&apos;m a designer & software developer with a special interest in networking and audio processing.
                     </p><br />
                     <p className="text-lg font-normal text-slate-500 lg:text-xl">
-                        [bio!]
+                        
                     </p>
                 </div>
             </div>

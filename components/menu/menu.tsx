@@ -9,10 +9,10 @@ export default function Menu() {
 
             <div className='flex md:grid md:items-center py-8 justify-center items-end'>
                 <div className="flex flex-cols-2 md:grid-cols-1 md:grid justify-center items-center gap-3 md:mb-0">
-                    <div className='max-sm:hidden'>
+                    <div className=''>
                         <NameCard />
                     </div>
-                    <div className='flex justify-end md:justify-center'>
+                    <div className='justify-end md:justify-center'>
                         <Tabs />
                     </div>
                     <div className='flex justify-start md:justify-center'>

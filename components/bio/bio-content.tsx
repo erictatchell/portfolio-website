@@ -30,7 +30,7 @@ function BioContent() {
 
                     </p>
                     <p className="text-lg font-normal mb-4 text-slate-800 lg:text-xl">
-                         Although I only started computing in CST back in 2022, I've been into computers for a long time. I was raised in Furry Creek, so growing up as far away from the nearest 711 as I did, you could frequently find me building and benchmarking. 
+                        Although I only started computing in CST back in 2022, I&apos;ve been into computers for a long time. I was raised in Furry Creek, so growing up as far away from the nearest 711 as I did, you could frequently find me building and benchmarking.
 
                     </p>
                     <p className="text-lg font-normal text-slate-800 lg:text-xl">

@@ -84,6 +84,27 @@
   display: none !important;
 }
 
+.animated-hi-there-container {
+  font-family: monospace; /* Use a code font */
+  font-size: 1.5rem; /* Adjust font size as needed */
+}
+
+.animated-hi-there-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: revealText 3s linear forwards; /* Animation duration: 3 seconds */
+}
+
+@keyframes revealText {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: auto;
+  }
+}
+
 
 body {
   font-family: 'Helvetica', sans-serif;

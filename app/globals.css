@@ -120,15 +120,13 @@
 body {
   font-family: 'Helvetica', sans-serif;
   background-image: url('../public/img/bg.jpg');
-  background-blend-mode: overlay;
+  background-color: #b3004c;
   color: rgb(var(--foreground-rgb));
   background-size: cover;
-  /* Stretch and cover the entire page */
   background-position: center;
-  /* Center the background image */
   background-repeat: no-repeat;
-  /* Prevent repeating the background image */
 }
+
 
 
 @layer utilities {

@@ -5,7 +5,7 @@ import ProjectsContent from '@/components/projects/projects-content';
 import { ProjectList } from './projects/projects';
 
 function Content() {  
-  const [content, setContent] = useState('bio');
+  const [content, setContent] = useState('aboutme');
   const [isClient, setIsClient] = useState(false);
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 
@@ -21,7 +21,7 @@ function Content() {
   }, []);
 
   let contentComponent;
-  if (content === 'bio') {
+  if (content === 'aboutme') {
     contentComponent = <BioContent />;
   } else if (content === 'projects') {
     contentComponent = <ProjectsContent

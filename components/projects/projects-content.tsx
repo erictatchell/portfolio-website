@@ -1,5 +1,6 @@
 // ProjectsContent.tsx
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Switcher from "./switcher";
 import { Variants } from "../animation"
 import { Project, ProjectList, Link } from "./projects";
@@ -41,7 +42,13 @@ const ProjectsContent: React.FC<ProjectsContentProps> = ({ projects, currentProj
         if (project.image) {
             Project.push(
                 <div key="image-info">
-                    <img src={project.image} alt={project.alt} className="w-12 h-12 object-cover mb-3" key="project-image" />
+                    <Image
+                        src={project.image} 
+                        alt={project.alt ? project.alt : "no alt text provided"} 
+                        width={48} 
+                        height={48} 
+                        className="object-cover mb-3" 
+                    />
                 </div>
             );
         }

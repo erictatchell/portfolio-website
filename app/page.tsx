@@ -7,7 +7,7 @@ export default function Home() {
       <div className='flex md:items-center lg:px-16 pb-8 justify-center overflow-y-auto '>
         <Content />
       </div>
-      <div className='flex md:items-center fixed items-end justify-center md:static bottom-0 w-full md:w-auto'> 
+      <div className='flex z-10 md:items-center fixed items-end justify-center md:static bottom-0 w-full md:w-auto'> 
         <Menu />
       </div>
     </div >

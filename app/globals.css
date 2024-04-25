@@ -92,21 +92,25 @@
 }
 
 .animated-hi-there-container {
-  font-family: monospace; /* Use a code font */
-  font-size: 1.5rem; /* Adjust font size as needed */
+  font-family: monospace;
+  /* Use a code font */
+  font-size: 1.5rem;
+  /* Adjust font size as needed */
 }
 
 .animated-hi-there-text {
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
-  animation: revealText 3s linear forwards; /* Animation duration: 3 seconds */
+  animation: revealText 3s linear forwards;
+  /* Animation duration: 3 seconds */
 }
 
 @keyframes revealText {
   0% {
     width: 0;
   }
+
   100% {
     width: auto;
   }
@@ -115,14 +119,16 @@
 
 body {
   font-family: 'Helvetica', sans-serif;
-  background-image: url('../public/img/bg.jpg'), linear-gradient(to bottom, rgba(var(--background-start-rgb), 0.3), rgba(var(--background-end-rgb), 0.8));
+  background-image: url('../public/img/bg.jpg');
   background-blend-mode: overlay;
   color: rgb(var(--foreground-rgb));
-  background-size: cover; /* Stretch and cover the entire page */
-  background-position: center; /* Center the background image */
-  background-repeat: no-repeat; /* Prevent repeating the background image */
+  background-size: cover;
+  /* Stretch and cover the entire page */
+  background-position: center;
+  /* Center the background image */
+  background-repeat: no-repeat;
+  /* Prevent repeating the background image */
 }
-
 
 
 @layer utilities {

@@ -18,19 +18,19 @@ const Switcher: React.FC<SwitcherProps> = ({ projects, index, setCurrentProjectI
         setCurrentProjectIndex((index + dir + ProjectList.length) % ProjectList.length);
     };
     return (
-        <div className="backdrop-blur-sm p-4">
+        <div className="backdrop-blur-md p-4">
             <div className="flex items-center  justify-center">
                 <button onClick={() => changeProject(-1)} className="mr-4  "
                     onMouseEnter={() => setLeftHovered(true)}
                     onMouseLeave={() => setLeftHovered(false)}>
-                    <ArrowCircleLeft size={32} weight={isLeftHovered ? "fill" : "regular"} />
+                    <ArrowCircleLeft size={32} color='#e2e8f0' weight={isLeftHovered ? "fill" : "regular"} />
                 </button>
-                <h1 className='text-xl font-bold uppercase'>{index + 1} / {projects.length}</h1>
+                <h1 className='text-xl text-slate-200 font-bold uppercase'>{index + 1} / {projects.length}</h1>
 
                 <button onClick={() => changeProject(1)} className="ml-4"
                     onMouseEnter={() => setNextHovered(true)}
                     onMouseLeave={() => setNextHovered(false)}>
-                    <ArrowCircleRight size={32} weight={isNextHovered ? "fill" : "regular"} />
+                    <ArrowCircleRight size={32} color='#e2e8f0'weight={isNextHovered ? "fill" : "regular"} />
                 </button>
             </div>
         </div>

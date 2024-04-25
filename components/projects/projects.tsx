@@ -68,16 +68,25 @@ async function fetchProjectsFromFirestore() {
     return projectsData;
 }
 
-async function populateProjectList() {
+let isProjectListPopulated = false;
+
+const populateProjectList = new Promise<void>(async (resolve, reject) => {
     try {
         const projectsData = await fetchProjectsFromFirestore();
         ProjectList.splice(0, ProjectList.length, ...projectsData);
-        console.log("ProjectList populated from Firestore successfully!");
+        isProjectListPopulated = true;
+        resolve();
     } catch (error) {
         console.error("Error populating ProjectList from Firestore:", error);
+        reject(error);
     }
-}
+});
 
-populateProjectList();
+populateProjectList.then(() => {
+
+}).catch((error) => {
+    console.error("Project list population failed:", error);
+});
 
 export const ProjectList: Project[] = [];
+export { isProjectListPopulated };

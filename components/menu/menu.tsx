@@ -7,15 +7,15 @@ export default function Menu() {
     return (
         <div className='md:shadow-3xl backdrop-blur-md md:p-5 mr-4'>
 
-            <div className='flex md:grid md:items-center p-6 justify-center items-end'>
-                <div className="flex flex-cols-2 md:grid-cols-1 md:grid justify-center items-center gap-3 md:mb-0">
-                    <div className=''>
+            <div className='md:grid md:items-center p-6 items-end'>
+                <div className="flex flex-cols-3 items-center md:grid-cols-1 md:grid gap-3 md:mb-0">
+                    <div className='justify-center mr-4'>
                         <NameCard />
                     </div>
-                    <div className='justify-end md:justify-center'>
+                    <div className='justify-center'>
                         <Tabs />
                     </div>
-                    <div className='flex justify-start md:justify-center'>
+                    <div className='justify-start'>
                         <Socials />
                     </div>
                 </div>

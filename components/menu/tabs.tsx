@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
+import { isProjectListPopulated } from "../projects/projects";
 
 export default function Tabs() {
     const [currentHash, setCurrentHash] = useState('#bio');
@@ -23,7 +24,9 @@ export default function Tabs() {
             <button onClick={() => setHash('bio')} className={`col-start-1 inline-flex justify-center border-b items-center px-3 py-2 text-xl  text-center border-2 border-black rounded-none focus:outline-none focus:ring-0 ${currentHash === '#bio' ? 'bg-[#B3004C] text-white hover:bg-[#B3004C]' : 'hover:bg-[#B3004C] hover:bg-opacity-10 hover:backdrop-blur-[1.5px] text-black '}`}>
                 <span className="text-left font-semibold uppercase whitespace-nowrap">about me</span>
             </button>
-            <button onClick={() => setHash('projects')} className={`col-start-1 inline-flex justify-center border-t items-center py-2 text-xl font text-center border-black border-2 rounded-none focus:outline-none focus:ring-0 ${currentHash === '#projects' ? 'bg-[#B3004C] text-white hover:bg-[#B3004C]' : 'hover:bg-[#B3004C] hover:bg-opacity-10 hover:backdrop-blur-[1.5px] hover:text-black'}`}>
+
+            {/* wait for the promise to return */}
+            <button onClick={() => isProjectListPopulated ? setHash('projects') : setHash('bio')} className={`col-start-1 inline-flex justify-center border-t items-center py-2 text-xl font text-center border-black border-2 rounded-none focus:outline-none focus:ring-0 ${currentHash === '#projects' ? 'bg-[#B3004C] text-white hover:bg-[#B3004C]' : 'hover:bg-[#B3004C] hover:bg-opacity-10 hover:backdrop-blur-[1.5px] hover:text-black'}`}>
                 <span className="text-left font-semibold uppercase whitespace-nowrap">Projects</span>
             </button>
         </div>

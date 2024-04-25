@@ -18,7 +18,7 @@ function BioContent() {
                     ]}
                     wrapper="span"
                     speed={10}
-                    style={{ fontWeight: '900', fontFamily: 'courier new', fontSize: '2.1rem', lineHeight: "2.25rem", display: 'inline-block' }}
+                    style={{ fontWeight: '900', fontFamily: 'CASCADIACODEISELITE', fontSize: '2.1rem', lineHeight: "2.25rem", display: 'inline-block' }}
                     repeat={Infinity}
                     className='mb-4'
                 />

@@ -76,6 +76,13 @@
   }
 }
 
+@font-face {
+  font-family: 'CASCADIACODEISELITE';
+  src: url('../public/font/CascadiaCode.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .modal-show {
   animation: fadeIn 0.5s ease-out forwards;
 }

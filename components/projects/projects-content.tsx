@@ -14,14 +14,24 @@ const ProjectsContent: React.FC<ProjectsContentProps> = ({ projects, currentProj
     const project: Project = ProjectList[currentProjectIndex];
 
     const getLinks = (project: Project): Link[] => {
-        const links = [];
-        links[0] = project.github1;
-        let i = 1;
-        if (project.github2) links[i++] = project.github2;
-        if (project.github3) links[i++] = project.github3;
-        if (project.video) links[i] = project.video;
+        const links: Link[] = [];
+
+        // Add GitHub links
+        if (project.githubLinks) {
+            project.githubLinks.forEach(({ github, buttonText }) => {
+                links.push(new Link(1, buttonText, github));
+            });
+        }
+
+        // Add video links
+        if (project.videoLinks) {
+            project.videoLinks.forEach(({ video, buttonText }) => {
+                links.push(new Link(0, buttonText, video));
+            });
+        }
+
         return links;
-    }
+    };
 
     const projectCard = (project: Project) => {
         const Card: any = [];

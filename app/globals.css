@@ -119,7 +119,6 @@
 
 body {
   font-family: 'Helvetica', sans-serif;
-  background-image: url('../public/img/bg.jpg');
   background-color: #b3004c;
   color: rgb(var(--foreground-rgb));
   background-size: cover;

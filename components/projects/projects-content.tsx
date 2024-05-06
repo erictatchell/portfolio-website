@@ -43,11 +43,11 @@ const ProjectsContent: React.FC<ProjectsContentProps> = ({ projects, currentProj
             Project.push(
                 <div className='flex w-full ' key="image-info">
                     <Image
-                        src={project.image} 
-                        alt={project.alt ? project.alt : "no alt text provided"} 
-                        width={48} 
-                        height={48} 
-                        className="mb-3" 
+                        src={project.image}
+                        alt={project.alt ? project.alt : "no alt text provided"}
+                        width={48}
+                        height={48}
+                        className="mb-3"
                     />
                 </div>
             );
@@ -114,13 +114,16 @@ const ProjectsContent: React.FC<ProjectsContentProps> = ({ projects, currentProj
         )
 
         return (
-            <div>
+            <div className='lg:fixed lg:top-44 lg:bottom-0 lg:left-1/4'>
                 <Switcher
                     projects={projects}
                     index={currentProjectIndex}
                     setCurrentProjectIndex={setCurrentProjectIndex}
                 />
-                {Card}
+                <div>
+
+                    {Card}
+                </div>
             </div>
         );
     }

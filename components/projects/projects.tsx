@@ -1,4 +1,4 @@
-import { getFirestore, collection, getDocs, query, orderBy } from "firebase/firestore";
+import { getFirestore, collection, getDocs, query, orderBy, addDoc } from "firebase/firestore";
 import { app, db } from "../../firebase"
 
 export class Link {
@@ -90,3 +90,26 @@ populateProjectList.then(() => {
 
 export const ProjectList: Project[] = [];
 export { isProjectListPopulated };
+
+export async function addProjectToFirestore(project: Project) {
+    try {
+        const projectsCollection = collection(firestore, "projects");
+        const docRef = await addDoc(projectsCollection, project);
+        return docRef.id;
+    } catch (error) {
+        throw error;
+    }
+}
+
+// const newProject: Project = {
+//     name: "BCIT Policy Database",
+//     description: "PostgreSQL database for managing BCIT policies",
+//     image: '/img/bcit.jpeg',
+//     alt: 'bcit-logo',
+//     bio: "To finish off CST, I worked with the BCIT Policy Management Office to migrate from their existing database on MS Access to a PostgreSQL database hosted on a website. Together with my team of 4 others, we designed a new database (3NF) and a new interface to provide the office with an easier way to manage policy information. This is my personal favourite project, jumping head first and building an improved schema for data we didn't fully understand proved to be quite the challenge. This project did more for my problem solving and critical thinking skills than any other project I've worked on. I greatly refined my NextJS/React skills while building the interface, and learning how to use tools like Docker, pgAdmin and Prisma to assist in the design process was a very refreshing experience.",
+//     category: "Practicum",
+//     techStack: "NextJS 14, TypeScript, PostgreSQL, Prisma, Amazon AWS S3, Docker, pgAdmin 4, Tailwind, AuthJS",
+//     githubLinks: [{ github: "https://github.com/username/new-project", buttonText: "View on GitHub" }],
+//     videoLinks: [{ video: "https://youtube.com/link-to-video", buttonText: "Watch Video" }],
+// };
+// addProjectToFirestore(newProject)

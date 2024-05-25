@@ -3,10 +3,10 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Switcher from "./switcher";
-import { Variants } from "../animation"
 import { Project, ProjectList, Link, isProjectListPopulated } from "./projects";
 import { useState } from 'react';
 import { ArrowCircleLeft, ArrowCircleRight } from '@phosphor-icons/react';
+import { Variants } from '../animation';
 
 interface ProjectsContentProps {
     projects: Project[];
@@ -106,7 +106,7 @@ const ProjectsContent: React.FC<ProjectsContentProps> = ({ projects, currentProj
 
         Card.push(
             <div key="card-wrapper" className="flex">
-                <motion.div key={currentProjectIndex} custom={currentProjectIndex} variants={Variants} initial="enter" animate="center" exit="exit" transition={{ x: { type: "spring", stiffness: 600, damping: 50 }, opacity: { duration: 0 } }}>
+                <motion.div key={currentProjectIndex} custom={currentProjectIndex} transition={{ x: { type: "spring", stiffness: 600, damping: 50 }, opacity: { duration: 0 } }}>
                     <div className="max-w-sm shadow-3xl backdrop-blur-md bg-slate-50 bg-opacity-5 rounded-none shadow-lg">
                         <div className="flex flex-col items-center md:block p-5">
                             {Project}
@@ -118,9 +118,7 @@ const ProjectsContent: React.FC<ProjectsContentProps> = ({ projects, currentProj
 
         return (
             <div>
-                <div>
-                    {Card}
-                </div>
+                {Card}
             </div>
         );
     }

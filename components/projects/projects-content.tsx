@@ -1,9 +1,12 @@
 // ProjectsContent.tsx
+'use client'
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Switcher from "./switcher";
 import { Variants } from "../animation"
 import { Project, ProjectList, Link, isProjectListPopulated } from "./projects";
+import { useState } from 'react';
+import { ArrowCircleLeft, ArrowCircleRight } from '@phosphor-icons/react';
 
 interface ProjectsContentProps {
     projects: Project[];
@@ -114,24 +117,47 @@ const ProjectsContent: React.FC<ProjectsContentProps> = ({ projects, currentProj
         )
 
         return (
-            <div className='lg:fixed lg:top-44 lg:bottom-0 lg:left-1/4'>
-                <Switcher
-                    projects={projects}
-                    index={currentProjectIndex}
-                    setCurrentProjectIndex={setCurrentProjectIndex}
-                />
+            <div>
                 <div>
-
                     {Card}
                 </div>
             </div>
         );
     }
+    const [isNextHovered, setNextHovered] = useState(false);
+    const [isLeftHovered, setLeftHovered] = useState(false);
 
+    // 1 is next, -1 is previous
+    const changeProject = (dir: number) => {
+        setCurrentProjectIndex((currentProjectIndex + dir + ProjectList.length) % ProjectList.length);
+    };
     return (
         <div>
-            {projectCard(project)}
+            <div className="backdrop-blur-md p-4 flex justify-center">
+                <h1 className='text-xl text-slate-200 font-bold uppercase'>{currentProjectIndex + 1} / {projects.length}</h1>
+            </div>
+            <div className='flex'>
+                {/* <div className='absolute'>
+                <Switcher
+                    projects={projects}
+                    index={currentProjectIndex}
+                    setCurrentProjectIndex={setCurrentProjectIndex}
+                />
+            </div> */}
+                <button onClick={() => changeProject(-1)} className="mr-4"
+                    onMouseEnter={() => setLeftHovered(true)}
+                    onMouseLeave={() => setLeftHovered(false)}>
+                    <ArrowCircleLeft size={32} color='#e2e8f0' weight={isLeftHovered ? "fill" : "regular"} />
+                </button>
+                {projectCard(project)}
+                <button onClick={() => changeProject(1)} className="ml-4"
+                    onMouseEnter={() => setNextHovered(true)}
+                    onMouseLeave={() => setNextHovered(false)}>
+                    <ArrowCircleRight size={32} color='#e2e8f0' weight={isNextHovered ? "fill" : "regular"} />
+                </button>
+            </div>
         </div>
+
     );
 }
 

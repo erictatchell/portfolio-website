@@ -106,7 +106,7 @@ const ProjectsContent: React.FC<ProjectsContentProps> = ({ projects, currentProj
 
         Card.push(
             <div key="card-wrapper" className="flex">
-                <motion.div key={currentProjectIndex} custom={currentProjectIndex} transition={{ x: { type: "spring", stiffness: 600, damping: 50 }, opacity: { duration: 0 } }}>
+                <motion.div key={currentProjectIndex} custom={currentProjectIndex} variants={Variants} initial="enter" animate="center" exit="exit" transition={{ x: { type: "spring", stiffness: 600, damping: 50 }, opacity: { duration: 0 } }}>
                     <div className="max-w-sm shadow-3xl backdrop-blur-md bg-slate-50 bg-opacity-5 rounded-none shadow-lg">
                         <div className="flex flex-col items-center md:block p-5">
                             {Project}
@@ -118,7 +118,10 @@ const ProjectsContent: React.FC<ProjectsContentProps> = ({ projects, currentProj
 
         return (
             <div>
-                {Card}
+                <div>
+                    {Card}
+
+                </div>
             </div>
         );
     }

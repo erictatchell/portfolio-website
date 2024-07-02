@@ -13,7 +13,7 @@ function BioContent() {
                 <TypeAnimation
                     sequence={[
                         //'cout << "Hi there!\\n";',
-                        `const greet = (): void => { console.log("Hi there!\\n"); }`,
+                        `const greet = (): void => { console.log("Hi there!"); }`,
                         1000,
                     ]}
                     wrapper="span"

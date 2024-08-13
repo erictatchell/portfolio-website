@@ -33,7 +33,7 @@ function BioContent() {
 
                     </p> */}
                     <p className="text-lg font-normal text-slate-300 lg:text-xl">
-                        Outside of my work, I love (often hate) to play golf, and I'm a hobbyist game developer.
+                        Outside of my work, I love (often hate) to play golf, and I&apos;m a hobbyist game developer.
                     </p>
                 </div>
             </div>

@@ -25,16 +25,15 @@ function BioContent() {
 
                 <div className=''>
                     <p className="text-lg font-normal mb-4 text-slate-300 lg:text-xl">
-                        I&apos;m a software developer & designer located in Vancouver, BC with a special interest in networking and audio processing.
-                        Recently graduated from BCIT with a Computer Systems diploma.
+                        I&apos;m a software developer & designer located in Vancouver, BC with a special interest in networking and database.
+                        Recently graduated from BCIT with a Computer Systems diploma. 
 
                     </p>
-                    <p className="text-lg font-normal mb-4 text-slate-300 lg:text-xl">
-                        Although I only started computing in CST back in 2022, I&apos;ve been into computers for a long time. I was raised in Furry Creek, so growing up as far away from the nearest 711 as I did, you could frequently find me building and benchmarking.
+                    {/* <p className="text-lg font-normal mb-4 text-slate-300 lg:text-xl">
 
-                    </p>
+                    </p> */}
                     <p className="text-lg font-normal text-slate-300 lg:text-xl">
-                        Outside of computing, I love (often hate) to play golf, and I enjoy video editing!
+                        Outside of my work, I love (often hate) to play golf, and I'm a hobbyist game developer.
                     </p>
                 </div>
             </div>

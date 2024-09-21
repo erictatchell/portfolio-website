@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Envelope } from "@phosphor-icons/react";
-import { Resend } from 'resend';
-
-const resend = new Resend('re_bFQZQocE_5XPxwBfmQzeMCTY1RLr6uCnG');
 
 interface ModalProps {
     isOpen: boolean;

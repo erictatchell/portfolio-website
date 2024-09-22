@@ -13,12 +13,12 @@ function BioContent() {
                 <TypeAnimation
                     sequence={[
                         //'cout << "Hi there!\\n";',
-                        `const greet = (): void => { console.log("Hi there!"); }`,
+                        `fmt.Println("Hi, my name is Eric")`,
                         1000,
                     ]}
                     wrapper="span"
                     speed={30}
-                    style={{ color: 'white',fontWeight: '900', fontFamily: 'CASCADIACODEISELITE', fontSize: '2.1rem', lineHeight: "2.25rem", display: 'inline-block' }}
+                    style={{ color: 'white', fontWeight: '900', fontFamily: 'CASCADIACODEISELITE', fontSize: '2.1rem', lineHeight: "2.25rem", display: 'inline-block' }}
                     repeat={Infinity}
                     className='mb-4'
                 />
@@ -26,7 +26,7 @@ function BioContent() {
                 <div className=''>
                     <p className="text-lg font-normal mb-4 text-slate-300 lg:text-xl">
                         I&apos;m a software developer & designer located in Vancouver, BC with a special interest in networking and database.
-                        Recently graduated from BCIT with a Computer Systems diploma. 
+                        Recently graduated from BCIT with a Computer Systems diploma.
 
                     </p>
                     {/* <p className="text-lg font-normal mb-4 text-slate-300 lg:text-xl">
